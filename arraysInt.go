@@ -13,35 +13,35 @@ func ConcatInt(left []int, right []int) []int {
 }
 
 // PopInt for int like javascript Array.prototype.pop
-func PopInt(array *[]int) int {
-	length := len(*array)
-	end := (*array)[length-1]
-	*array = (*array)[0 : length-1]
+func PopInt(array []int) int {
+	length := len(array)
+	end := (array)[length-1]
+	array = (array)[0 : length-1]
 	return end
 }
 
 // PushInt for int like javascript Array.prototype.push
-func PushInt(array *[]int, val int) {
-	*array = append(*array, val)
+func PushInt(array []int, val int) {
+	array = append(array, val)
 }
 
 // ShiftInt for int like javascript Array.prototype.shift
-func ShiftInt(array *[]int) int {
-	length := len(*array)
-	start := (*array)[0]
-	*array = (*array)[0 : length-1]
+func ShiftInt(array []int) int {
+	length := len(array)
+	start := (array)[0]
+	array = (array)[0 : length-1]
 	return start
 }
 
 // UnshiftInt for int like javascript Array.prototype.unshift
-func UnshiftInt(array *[]int, val int)  {
+func UnshiftInt(array []int, val int)  {
 	newArray := []int{val}
-	*array = append(newArray, *array...)
+	array = append(newArray, array...)
 }
 
 // IndexOfInt for int like javascript Array.prototype.indexOf
-func IndexOfInt(array *[]int, val int) int  {
-	for index, arrayVal := range *array {
+func IndexOfInt(array []int, val int) int  {
+	for index, arrayVal := range array {
 		if arrayVal == val {
 			return index
 		}
@@ -50,18 +50,18 @@ func IndexOfInt(array *[]int, val int) int  {
 }
 
 // LastIndexOfInt for int like javascript Array.prototype.lastIndexOf
-func LastIndexOfInt(array *[]int, val int) int  {
+func LastIndexOfInt(array []int, val int) int  {
 	orderIndex := IndexOfInt(array, val)
 	if orderIndex == -1 {
 		return -1
 	}
-	return len(*array) - 1 - orderIndex
+	return len(array) - 1 - orderIndex
 }
 
 // IncludesInt for int like javascript Array.prototype.includes
-func IncludesInt(array *[]int, val int) bool  {
+func IncludesInt(array []int, val int) bool  {
 	exists := false
-	for _, arrayVal := range *array {
+	for _, arrayVal := range array {
 		if arrayVal == val {
 			exists = true
 			break
@@ -71,24 +71,24 @@ func IncludesInt(array *[]int, val int) bool  {
 }
 
 // ReverseInt for int like javascript Array.prototype.reverse
-func ReverseInt(array *[]int) {
-	length := len(*array)
-	for index := range *array {
+func ReverseInt(array []int) {
+	length := len(array)
+	for index := range array {
 		if index > length / 2 {
-			(*array)[index], (*array)[length - 1 - index] =(*array)[length - 1 - index], (*array)[index]
+			(array)[index], (array)[length - 1 - index] =(array)[length - 1 - index], (array)[index]
 		}
 	}
 }
 
 // SpliceInt for int like javascript Array.prototype.splice
-func SpliceInt(array *[]int, start int, length int, appends []int)  {
+func SpliceInt(array []int, start int, length int, appends []int)  {
 	newArray := make([]int, 0)
-	left := (*array)[0: start]
-	right := (*array)[(start+length): len(*array)]
+	left := (array)[0: start]
+	right := (array)[(start+length): len(array)]
 	newArray = append(newArray, left...)
 	newArray = append(newArray, appends...)
 	newArray = append(newArray, right...)
-	*array = newArray
+	array = newArray
 }
 
 // JoinInt for int like javascript Array.prototype.join
