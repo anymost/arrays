@@ -4,6 +4,16 @@ import (
 	"fmt"
 )
 
+// ContainsString for string like javascript Array.prototype.contains
+func ContainsString(array []string, value string) bool {
+	for _, item := range array {
+		if item == value {
+			return true
+		}
+	}
+	return false
+}
+
 // ConcatString for string like javascript Array.prototype.concat
 func ConcatString(left []string, right []string) []string {
 	result := make([]string, 0)
@@ -34,13 +44,13 @@ func ShiftString(array []string) string {
 }
 
 // UnshiftString for string like javascript Array.prototype.unshift
-func UnshiftString(array []string, val string)  {
+func UnshiftString(array []string, val string) {
 	newArray := []string{val}
 	array = append(newArray, array...)
 }
 
 // IndexOfString for string like javascript Array.prototype.indexOf
-func IndexOfString(array []string, val string) int  {
+func IndexOfString(array []string, val string) int {
 	for index, arrayVal := range array {
 		if arrayVal == val {
 			return index
@@ -50,7 +60,7 @@ func IndexOfString(array []string, val string) int  {
 }
 
 // LastIndexOfString for string like javascript Array.prototype.lastIndexOf
-func LastIndexOfString(array []string, val string) int  {
+func LastIndexOfString(array []string, val string) int {
 	orderIndex := IndexOfString(array, val)
 	if orderIndex == -1 {
 		return -1
@@ -59,7 +69,7 @@ func LastIndexOfString(array []string, val string) int  {
 }
 
 // IncludesString for string like javascript Array.prototype.includes
-func IncludesString(array []string, val string) bool  {
+func IncludesString(array []string, val string) bool {
 	exists := false
 	for _, arrayVal := range array {
 		if arrayVal == val {
@@ -74,17 +84,17 @@ func IncludesString(array []string, val string) bool  {
 func ReverseString(array []string) {
 	length := len(array)
 	for index := range array {
-		if index > length / 2 {
-			(array)[index], (array)[length - 1 - index] =(array)[length - 1 - index], (array)[index]
+		if index > length/2 {
+			(array)[index], (array)[length-1-index] = (array)[length-1-index], (array)[index]
 		}
 	}
 }
 
 // SpliceString for string like javascript Array.prototype.splice
-func SpliceString(array []string, start int, length int, appends []string)  {
+func SpliceString(array []string, start int, length int, appends []string) {
 	newArray := make([]string, 0)
-	left := (array)[0: start]
-	right := (array)[(start+length): len(array)]
+	left := (array)[0:start]
+	right := (array)[(start + length):len(array)]
 	newArray = append(newArray, left...)
 	newArray = append(newArray, appends...)
 	newArray = append(newArray, right...)

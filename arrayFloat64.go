@@ -4,6 +4,15 @@ import (
 	"fmt"
 )
 
+func ContainsFloat64(array []float64, value float64) bool {
+	for _, item := range array {
+		if item == value {
+			return true
+		}
+	}
+	return false
+}
+
 // ConcatFloat64 for float64 like javascript Array.prototype.concat
 func ConcatFloat64(left []float64, right []float64) []float64 {
 	result := make([]float64, 0)
@@ -34,13 +43,13 @@ func ShiftFloat64(array []float64) float64 {
 }
 
 // UnshiftFloat64 for float64 like javascript Array.prototype.unshift
-func UnshiftFloat64(array []float64, val float64)  {
+func UnshiftFloat64(array []float64, val float64) {
 	newArray := []float64{val}
 	array = append(newArray, array...)
 }
 
 // IndexOfFloat64 for float64 like javascript Array.prototype.indexOf
-func IndexOfFloat64(array []float64, val float64) int  {
+func IndexOfFloat64(array []float64, val float64) int {
 	for index, arrayVal := range array {
 		if arrayVal == val {
 			return index
@@ -50,7 +59,7 @@ func IndexOfFloat64(array []float64, val float64) int  {
 }
 
 // LastIndexOfFloat64 for float64 like javascript Array.prototype.lastIndexOf
-func LastIndexOfFloat64(array []float64, val float64) int  {
+func LastIndexOfFloat64(array []float64, val float64) int {
 	orderIndex := IndexOfFloat64(array, val)
 	if orderIndex == -1 {
 		return -1
@@ -59,7 +68,7 @@ func LastIndexOfFloat64(array []float64, val float64) int  {
 }
 
 // IncludesFloat64 for float64 like javascript Array.prototype.includes
-func IncludesFloat64(array []float64, val float64) bool  {
+func IncludesFloat64(array []float64, val float64) bool {
 	exists := false
 	for _, arrayVal := range array {
 		if arrayVal == val {
@@ -74,17 +83,17 @@ func IncludesFloat64(array []float64, val float64) bool  {
 func ReverseFloat64(array []float64) {
 	length := len(array)
 	for index := range array {
-		if index > length / 2 {
-			(array)[index], (array)[length - 1 - index] =(array)[length - 1 - index], (array)[index]
+		if index > length/2 {
+			(array)[index], (array)[length-1-index] = (array)[length-1-index], (array)[index]
 		}
 	}
 }
 
 // SpliceFloat64 for float64 like javascript Array.prototype.splice
-func SpliceFloat64(array []float64, start int, length int, appends []float64)  {
+func SpliceFloat64(array []float64, start int, length int, appends []float64) {
 	newArray := make([]float64, 0)
-	left := (array)[0: start]
-	right := (array)[(start+length): len(array)]
+	left := (array)[0:start]
+	right := (array)[(start + length):len(array)]
 	newArray = append(newArray, left...)
 	newArray = append(newArray, appends...)
 	newArray = append(newArray, right...)

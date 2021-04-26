@@ -1,5 +1,5 @@
 #### Golang Arrays
-##### an array utils like JavaScript Array, includes concat,pop, push, shift, unshift, indexOf, lastIndexOf, includes,reverse, splice, join 
+##### an array utils like JavaScript Array, includes contains, concat, pop, push, shift, unshift, indexOf, lastIndexOf, includes,reverse, splice, join 
 
 ```
 useage: go get -u github.com/anymost/arrays

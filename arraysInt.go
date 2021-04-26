@@ -4,6 +4,16 @@ import (
 	"fmt"
 )
 
+// ContainsInt for int like javascript Array.prototype.contains
+func ContainsInt(array []int, value int) bool {
+	for _, item := range array {
+		if item == value {
+			return true
+		}
+	}
+	return false
+}
+
 // ConcatInt for int like javascript Array.prototype.concat
 func ConcatInt(left []int, right []int) []int {
 	result := make([]int, 0)
@@ -34,13 +44,13 @@ func ShiftInt(array []int) int {
 }
 
 // UnshiftInt for int like javascript Array.prototype.unshift
-func UnshiftInt(array []int, val int)  {
+func UnshiftInt(array []int, val int) {
 	newArray := []int{val}
 	array = append(newArray, array...)
 }
 
 // IndexOfInt for int like javascript Array.prototype.indexOf
-func IndexOfInt(array []int, val int) int  {
+func IndexOfInt(array []int, val int) int {
 	for index, arrayVal := range array {
 		if arrayVal == val {
 			return index
@@ -50,7 +60,7 @@ func IndexOfInt(array []int, val int) int  {
 }
 
 // LastIndexOfInt for int like javascript Array.prototype.lastIndexOf
-func LastIndexOfInt(array []int, val int) int  {
+func LastIndexOfInt(array []int, val int) int {
 	orderIndex := IndexOfInt(array, val)
 	if orderIndex == -1 {
 		return -1
@@ -59,7 +69,7 @@ func LastIndexOfInt(array []int, val int) int  {
 }
 
 // IncludesInt for int like javascript Array.prototype.includes
-func IncludesInt(array []int, val int) bool  {
+func IncludesInt(array []int, val int) bool {
 	exists := false
 	for _, arrayVal := range array {
 		if arrayVal == val {
@@ -74,17 +84,17 @@ func IncludesInt(array []int, val int) bool  {
 func ReverseInt(array []int) {
 	length := len(array)
 	for index := range array {
-		if index > length / 2 {
-			(array)[index], (array)[length - 1 - index] =(array)[length - 1 - index], (array)[index]
+		if index > length/2 {
+			(array)[index], (array)[length-1-index] = (array)[length-1-index], (array)[index]
 		}
 	}
 }
 
 // SpliceInt for int like javascript Array.prototype.splice
-func SpliceInt(array []int, start int, length int, appends []int)  {
+func SpliceInt(array []int, start int, length int, appends []int) {
 	newArray := make([]int, 0)
-	left := (array)[0: start]
-	right := (array)[(start+length): len(array)]
+	left := (array)[0:start]
+	right := (array)[(start + length):len(array)]
 	newArray = append(newArray, left...)
 	newArray = append(newArray, appends...)
 	newArray = append(newArray, right...)
@@ -101,4 +111,3 @@ func JoinInt(array []int, slim string) string {
 	}
 	return str
 }
-
